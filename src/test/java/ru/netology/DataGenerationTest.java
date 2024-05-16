@@ -45,7 +45,7 @@ public class DataGenerationTest {
     @Test
     void shouldPassTestCase1() {
         var invalidUser = DataGenerator.Registration.getUser("blocked");
-        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.Registration.getRandomLogin());
+        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.getRandomLogin());
         $("[data-test-id=password] .input__box .input__control").val(invalidUser.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! " + "Неверно указан логин или пароль"));
@@ -55,15 +55,15 @@ public class DataGenerationTest {
     void shouldPassTestCase2() {
         var invalidUser = DataGenerator.Registration.getUser("blocked");
         $("[data-test-id=login] .input__box .input__control").val(invalidUser.getLogin());
-        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.Registration.getRandomPassword());
+        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.getRandomPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! " + "Неверно указан логин или пароль"));
     }
 
     @Test
     void shouldPassTestCase3() {
-        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.Registration.getRandomLogin());
-        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.Registration.getRandomPassword());
+        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.getRandomLogin());
+        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.getRandomPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! " + "Неверно указан логин или пароль"));
     }
@@ -71,7 +71,7 @@ public class DataGenerationTest {
     @Test
     void shouldPassTestCase4() {
         var validUser = DataGenerator.Registration.getRegisteredUser("blocked");
-        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.Registration.getRandomLogin());
+        $("[data-test-id=login] .input__box .input__control").val(DataGenerator.getRandomLogin());
         $("[data-test-id=password] .input__box .input__control").val(validUser.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! " + "Неверно указан логин или пароль"));
@@ -81,7 +81,7 @@ public class DataGenerationTest {
     void shouldPassTestCase5() {
         var validUser = DataGenerator.Registration.getRegisteredUser("blocked");
         $("[data-test-id=login] .input__box .input__control").val(validUser.getLogin());
-        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.Registration.getRandomPassword());
+        $("[data-test-id=password] .input__box .input__control").val(DataGenerator.getRandomPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! " + "Неверно указан логин или пароль"));
     }
